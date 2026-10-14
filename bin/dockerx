@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# =============================================================================
+#  DockerX launcher  —  single command entry point
+#  Usage: dockerx <command>
+#  Built by Alexa for Hari Jadhav Ji.
+# =============================================================================
+DX_HOME="${DX_HOME:-$HOME/.dockerx}"
+S="$DX_HOME/scripts"
+
+if [ ! -d "$S" ]; then
+  echo "DockerX: setup adhura hai."
+  # rootfs ke andar ho? (proot rootfs ka HOME /root hota hai)
+  if [ "$HOME" = "/root" ] || [ -d "/root/.dockerx" ] && [ ! -d "/data/data/com.termux/files/home/.dockerx" ]; then
+    echo ""
+    echo "  Lagta hai aap Linux rootfs ke andar ho (jaise root@localhost)."
+    echo "  Wahan 'dockerx' nahi chalta — ye Termux ka command hai."
+    echo ""
+    echo "  KARO:  pehle  exit   chalao (Termux me wapas aao)"
+    echo "         phir   dockerx start"
+  else
+    echo "  Pehle chalao:  bash install.sh"
+  fi
+  exit 1
+fi
+
+cmd="${1:-menu}"
+[ $# -gt 0 ] && shift
+
+case "$cmd" in
+  setup)      exec bash "$S/setup.sh" "$@" ;;
+  start)      exec bash "$S/start.sh" "$@" ;;
+  stop)       exec bash "$S/stop.sh" "$@" ;;
+  restart)    bash "$S/stop.sh"; exec bash "$S/start.sh" ;;
+  status)     exec bash "$S/status.sh" "$@" ;;
+  shell|bash) exec bash "$S/shell.sh" "$@" ;;
+  menu|ui)    exec bash "$S/menu.sh" "$@" ;;
+  doctor)     exec bash "$S/doctor.sh" "$@" ;;
+  fix|repair) exec bash "$S/fix.sh" "$@" ;;
+  update)     exec bash "$S/update.sh" "$@" ;;
+  uninstall)  exec bash "$S/uninstall.sh" "$@" ;;
+  info)       exec bash "$S/info.sh" "$@" ;;
+  backup)     exec bash "$S/backup.sh" "$@" ;;
+  help|-h|--help)
+              exec bash "$S/info.sh" --help ;;
+  *)
+              # baaki sab docker command maan lo (run, ps, images, pull ...)
+              exec bash "$S/docker-passthrough.sh" "$cmd" "$@" ;;
+esac

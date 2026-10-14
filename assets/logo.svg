@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="DockerX logo">
+  <defs>
+    <linearGradient id="lred" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e23744"/>
+      <stop offset="1" stop-color="#ff7a45"/>
+    </linearGradient>
+    <linearGradient id="lcyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0891b2"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- transparent background: no bg rect -->
+
+  <!-- Whale (Docker-style) -->
+  <g transform="translate(96,120)">
+    <g fill="url(#lcyan)" opacity="0.95">
+      <rect x="18" y="34" width="26" height="24" rx="3"/>
+      <rect x="50" y="34" width="26" height="24" rx="3"/>
+      <rect x="82" y="34" width="26" height="24" rx="3"/>
+      <rect x="50" y="4"  width="26" height="24" rx="3"/>
+      <rect x="82" y="4"  width="26" height="24" rx="3"/>
+      <rect x="114" y="34" width="26" height="24" rx="3"/>
+    </g>
+    <path d="M0 74 q60 -26 150 0 q30 6 42 22 q-16 10 -40 12 q-80 8 -152 -6 q-14 -4 -14 -14 q0 -10 14 -14 z" fill="#94a3b8"/>
+    <path d="M-2 84 q-34 -22 -60 -14 q10 22 34 30 q-24 8 -34 30 q26 8 60 -14 z" fill="#94a3b8"/>
+    <circle cx="34" cy="80" r="5" fill="#0f172a"/>
+    <path d="M20 74 q-6 -26 -22 -34 M20 74 q2 -28 -6 -40 M20 74 q10 -24 22 -30"
+          stroke="url(#lcyan)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="256" y="400" text-anchor="middle"
+        font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+        font-size="88" font-weight="800" fill="#64748b">Docker<tspan fill="url(#lred)">X</tspan></text>
+</svg>

@@ -1,0 +1,18 @@
+# Logs
+*.log
+dockerx.log
+
+# Backups
+dockerx-backup-*.tar.gz
+
+# Editor / OS junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local test junk
+/tmp/
+*.tmp
